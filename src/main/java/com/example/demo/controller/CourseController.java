@@ -1,6 +1,8 @@
 package com.example.demo.controller;
 
 import com.example.demo.models.Course.CourseModel;
+import com.example.demo.models.Session.SessionModel;
+import com.example.demo.models.Session.SessionResponseModel;
 import com.example.demo.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -40,6 +42,19 @@ public class CourseController {
             return new ResponseEntity<>(result, HttpStatus.OK);
         } catch (Exception e) {
             result.put("error", "failed");
+            return new ResponseEntity<>(result, HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @GetMapping("/sessionDetails/{course_id}")
+    public ResponseEntity<Object> getSessionDetails(@PathVariable Integer courseId) {
+        Map<String, Object> result = new HashMap<>();
+        try {
+            List<SessionResponseModel> sessions = courseService.getSessionDetails(courseId);
+            result.put("result", sessions);
+            return new ResponseEntity<>(result, HttpStatus.OK);
+        } catch (Exception e) {
+            result.put("error", e.getLocalizedMessage());
             return new ResponseEntity<>(result, HttpStatus.BAD_REQUEST);
         }
     }
