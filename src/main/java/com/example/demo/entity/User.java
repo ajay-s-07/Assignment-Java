@@ -1,19 +1,30 @@
-package com.example.demo.model;
+package com.example.demo.entity;
 
+import com.example.demo.enums.Role;
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 @Data
 
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@Builder
 public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
     private String name;
-    private String role; // customer
+
+    private Role role; // customer
+
     private String email;
-    private String password;
+
+    private String contact_no;
 
     // Constraints:
     // - 'name' and 'email' are required and cannot be null.
