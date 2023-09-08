@@ -4,6 +4,9 @@ import com.example.demo.enums.Role;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Data
 
 @Entity
@@ -20,11 +23,20 @@ public class User {
 
     private String name;
 
-    private Role role; // customer
+    private Role role;
 
     private String email;
 
     private String contact_no;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Certificate> certificateList = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    List<Enrollment> enrollmentList = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    List<Payment> paymentList = new ArrayList<>();
 
     // Constraints:
     // - 'name' and 'email' are required and cannot be null.

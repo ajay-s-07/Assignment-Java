@@ -1,10 +1,7 @@
 package com.example.demo.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.*;
 
@@ -13,19 +10,27 @@ import java.util.*;
 @NoArgsConstructor
 @Getter
 @Setter
+@Builder
 public class Payment {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn
     private User user;
+
     @ManyToOne
-    @JoinColumn(name = "course_id")
+    @JoinColumn
     private Course course;
+
     private double amount;
-    private Date paymentDate;
-    private String paymentStatus;
+
+    private String paymentDate;
+
+    private boolean paymentStatus;
+
     private String paymentMethod;
 
 

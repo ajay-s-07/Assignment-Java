@@ -1,10 +1,7 @@
 package com.example.demo.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.*;
 
@@ -13,17 +10,23 @@ import java.util.*;
 @Getter
 @Setter
 @Entity
+@Builder
 public class Certificate {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn
     private User user;
+
     @ManyToOne
-    @JoinColumn(name = "course_id")
+    @JoinColumn
     private Course course;
-    private Date issueDate;
+
+    private String issueDate;
+
     private String downloadLink;
 
 
@@ -39,4 +42,3 @@ public class Certificate {
     // - 'issueDate' is of type Date.
     // - 'downloadLink' is of type String.
 }
-
