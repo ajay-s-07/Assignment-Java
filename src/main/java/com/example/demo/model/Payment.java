@@ -18,5 +18,18 @@ public class Payment {
     private Date paymentDate;
     private String paymentStatus;
     private String paymentMethod;
-    // Getters and setters
+
+
+    // Constraints:
+    // - 'paymentStatus' and 'paymentMethod' are required and cannot be null.
+
+    // Relationships:
+    // - Payment belongs to a User, define a @ManyToOne relationship.
+    // - Payment belongs to a Course, define a @ManyToOne relationship.
+
+    // Data Types:
+    // - 'id' is of type Integer.
+    // - 'amount' is of type double.
+    // - 'paymentDate' is of type Date.
+    // - 'paymentStatus' and 'paymentMethod' are of type String.
 }

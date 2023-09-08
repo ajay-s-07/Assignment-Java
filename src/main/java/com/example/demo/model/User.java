@@ -15,7 +15,16 @@ public class User {
     private String email;
     private String password;
 
-    // Getters and setters
+    // Constraints:
+    // - 'name' and 'email' are required and cannot be null.
+    // - 'email' must be unique (no duplicate emails allowed).
+
+    // Relationships:
+    // - User can have multiple enrollments in courses, that is @OneToMany relationship.
+
+    // Data Types:
+    // - 'id' is of type Integer.
+    // - 'name', 'email', 'password', and 'role' are of type String.
 
 }
 

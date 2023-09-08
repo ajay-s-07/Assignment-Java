@@ -16,6 +16,18 @@ public class Certificate {
     private Course course;
     private Date issueDate;
     private String downloadLink;
-    // Getters and setters
+
+
+    // Constraints:
+    // - 'downloadLink' is required and cannot be null.
+
+    // Relationships:
+    // - Certificate belongs to a User, we can define it @ManyToOne relationship.
+    // - Certificate belongs to a Course, that is @ManyToOne relationship.
+
+    // Data Types:
+    // - 'id' is of type Integer.
+    // - 'issueDate' is of type Date.
+    // - 'downloadLink' is of type String.
 }
 

@@ -17,6 +17,18 @@ public class Enrollment {
     private Course course;
     private Date enrollmentDate;
     private String paymentStatus;
-    // Getters and setters
+
+
+    // Constraints:
+    // - 'paymentStatus' is required and cannot be null.
+
+    // Relationships:
+    // - Enrollment belongs to a User, that is @ManyToOne relationship.
+    // - Enrollment belongs to a Course, that is @ManyToOne relationship.
+
+    // Data Types:
+    // - 'id' is of type Integer.
+    // - 'enrollmentDate' is of type Date.
+    // - 'paymentStatus' is of type String.
 }
 
